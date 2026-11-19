@@ -66,7 +66,7 @@ const DEFAULT_PANELS = ['hero.jpg', 'marina.jpg', 'speedboat.jpg', 'diner.jpg', 
 
 const state = {
   layout: 'wall',
-  grade: 'ink',
+  grade: 'sunset',
   title: 'REEF HEAT',
   subtitle: 'Palm Reef City Nights',
   tagline: 'ONE CITY · NO BRAKES · ALL SUNSHINE',
