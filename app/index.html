@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REEF HEAT — Palm Reef City Cover Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">RH</span>
+    <div>
+      <h1>REEF HEAT</h1>
+      <p>Palm Reef City Cover Maker — photo + caption into multi-panel poster covers</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <label class="size-label" for="exportSize">Export size</label>
+    <select id="exportSize">
+      <option value="1080x1080">1080 × 1080 square</option>
+      <option value="1080x1350" selected>1080 × 1350 portrait</option>
+      <option value="1920x1080">1920 × 1080 landscape</option>
+    </select>
+    <button id="exportBtn" class="btn primary">Export PNG</button>
+  </div>
+</header>
+
+<main class="workspace">
+  <aside class="panel controls" id="controls">
+    <section>
+      <h2>1 · Layout</h2>
+      <div class="btn-row" id="layoutRow" role="group" aria-label="Layout">
+        <button data-layout="grid" type="button">Poster Grid</button>
+        <button data-layout="trio" type="button">Hero Trio</button>
+        <button data-layout="bands" type="button">Skyline Bands</button>
+        <button data-layout="corners" type="button">Four Corners</button>
+        <button data-layout="wall" type="button">Poster Wall · 7</button>
+      </div>
+      <p class="hint">Poster Wall packs 7 panels, reusing crops of the same photos.</p>
+    </section>
+
+    <section>
+      <h2>2 · Colour grade</h2>
+      <div class="btn-row" id="gradeRow" role="group" aria-label="Colour grade">
+        <button data-grade="sunset" type="button">Palm Reef Sunset</button>
+        <button data-grade="neon" type="button">Neon Night</button>
+        <button data-grade="clean" type="button">Clean</button>
+        <button data-grade="ink" type="button">Poster Ink</button>
+      </div>
+      <p class="hint">One grade unifies every panel. Poster Ink posterizes to a 6-step sunset ramp with halftone dots.</p>
+    </section>
+
+    <section>
+      <h2>3 · Caption</h2>
+      <label class="field">Title
+        <input id="titleInput" type="text" value="REEF HEAT" maxlength="24">
+      </label>
+      <label class="field">Script subtitle
+        <input id="subtitleInput" type="text" value="Palm Reef City Nights" maxlength="40">
+      </label>
+      <label class="field">Tagline strip
+        <input id="taglineInput" type="text" value="ONE CITY · NO BRAKES · ALL SUNSHINE" maxlength="60">
+      </label>
+      <div class="checks">
+        <label><input id="bandToggle" type="checkbox" checked> Title band with skyline</label>
+        <label><input id="burstToggle" type="checkbox" checked> Starburst “EST. 2026”</label>
+        <label><input id="ratingToggle" type="checkbox" checked> “HEAT” star rating pill</label>
+        <label><input id="bannerToggle" type="checkbox" checked> Corner banner</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>4 · Photos</h2>
+      <p class="hint">Click a panel in the preview to select it, then pick a photo. Drag to pan, scroll to zoom. “One photo across all panels” spans a single photo over the whole poster.</p>
+      <label class="check-line"><input id="spanToggle" type="checkbox"> One photo across all panels</label>
+      <div class="samples" id="sampleStrip"></div>
+      <label class="btn file-btn">Upload your own photo
+        <input id="uploadInput" type="file" accept="image/*">
+      </label>
+      <div id="panelList" class="panel-list"></div>
+    </section>
+
+    <section>
+      <h2>Export</h2>
+      <div class="btn-row export-row">
+        <button id="exportSquare" type="button">1080 × 1080</button>
+        <button id="exportPortrait" type="button">1080 × 1350</button>
+        <button id="exportWide" type="button">1920 × 1080</button>
+      </div>
+      <p class="hint">PNG, fully offline. Your photos never leave this machine.</p>
+    </section>
+  </aside>
+
+  <section class="stage">
+    <div class="preview-wrap">
+      <canvas id="preview" width="1080" height="1350"></canvas>
+      <p class="preview-caption" id="previewCaption">Poster Wall · Poster Ink · 1080 × 1350</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>REEF HEAT — an original cover maker. No Rockstar artwork, logo or font.</span>
+  <span id="statusLine">Loading photos…</span>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
